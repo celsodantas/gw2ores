@@ -1,0 +1,10 @@
+
+<script type="text/javascript">
+	active_map_id = <%= @map.id %>
+</script>
+
+<% @map.ore_nodes.each do |ore| %>
+	<%= image_tag "#{ore.name}.png", class: "ore", style: "left: #{ore.x}px; top: #{ore.y}px", data: {id: ore.id} %>
+<% end %>
+
+<%= image_tag "maps/#{@map.image}", id: "map" %>

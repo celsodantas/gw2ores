@@ -1,0 +1,21 @@
+
+<h1>Ores Location</h1>
+<h2>Server: <%= @server %></h2>
+
+<div class="maps_grid">
+
+	<div class="minimap">
+		<% @maps.each do |map| %>
+			<%= link_to "map/#{map.id}", class: "fancybox", data: { "fancybox-type" => "ajax"} do %>
+				<%= map.name %>
+				<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
+			<% end %>
+		<% end %>
+	</div>
+
+</div>
+
+<!-- <div class="ores_and_map malchors_leap">
+	<%= image_tag "orichalcum.png", class: "ore", style: "left: 30px; top: 30px", data: {id: 1} %>
+	<%= image_tag "maps/malchors_leap.jpeg", id: "map" %>
+</div> -->
