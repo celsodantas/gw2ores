@@ -59,6 +59,9 @@ $(function() {
 		  },
 		  omnomberry: {
 		  		name: "Omnomberry", callback: function (e) { menu_click(e); }
+		  },
+		  ancient_wood: {
+		  		name: "Ancient Wood", callback: function (e) { menu_click(e); }
 		  }
 		}
 	});

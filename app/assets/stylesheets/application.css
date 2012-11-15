@@ -30,9 +30,13 @@ body {
 
 .ore {
     position: absolute;
-    width: 20px;
+    width: 22px;
 }
 
 .minimap {
 	width: 200px;
+}
+
+.reset-date {
+	color: red
 }

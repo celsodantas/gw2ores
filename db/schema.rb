@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20121114213354) do
   create_table "ore_nodes", :force => true do |t|
     t.string   "name"
     t.integer  "map_id"
+    t.integer  "reset_date_id"
     t.integer  "x"
     t.integer  "y"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "reset_dates", :force => true do |t|
