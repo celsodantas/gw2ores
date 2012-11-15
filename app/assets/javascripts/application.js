@@ -15,7 +15,7 @@
 //= require twitter/bootstrap
 //= require jquery.ui.position
 //= require jquery.contextMenu.min
-//= require fancybox/jquery.fancybox
+//= require colorbox/jquery.colorbox-min
 //= require_tree .
 
 

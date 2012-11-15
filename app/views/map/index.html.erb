@@ -3,8 +3,10 @@
 	active_map_id = <%= @map.id %>
 </script>
 
-<% @map.ore_nodes.each do |ore| %>
-	<%= image_tag "#{ore.name}.png", class: "ore", style: "left: #{ore.x}px; top: #{ore.y}px", data: {id: ore.id} %>
-<% end %>
+<div id="map" style="width: <%= @map.size_x %>px; height: <%= @map.size_y %>px">
+	<% @map.ore_nodes.each do |ore| %>
+		<%= render("/ore_node/ore", :@ore => ore) %>
+	<% end %>
 
-<%= image_tag "maps/#{@map.image}", id: "map" %>
+	<%= image_tag "maps/#{@map.image}", id: "map" %>
+</div>

@@ -6,6 +6,7 @@ OreLocations::Application.routes.draw do
 
   post 'ore_node/map/:id' => "ore_node#create"
   post 'ore_node/delete/:id'  => "ore_node#delete"
+  post 'ore_node/reset' => "ore_node#reset"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

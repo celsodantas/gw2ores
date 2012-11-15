@@ -1,16 +1,25 @@
 
-<h1>Ores Location for Guild Wars 2</h1>
 <h2>Server: <%= @server %></h2>
-<h3 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h3>
+<h4 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h4>
+
+<hr>	
 
 <div class="maps_grid">
 
 	<div class="minimap">
 		<% @maps.each do |map| %>
-			<%= link_to "map/#{map.id}", title: map.name.titleize, class: "fancybox", data: { "fancybox-type" => "ajax"} do %>
-				<%= map.name.titleize %>
-				<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
-			<% end %>
+			<div class="span6">
+				<%= link_to "map/#{map.id}", title: "#{map.name.titleize} - Right-click to add a node", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
+					<h4><%= map.name.titleize %></h4>
+					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
+				<% end %>
+			</div>
+
+			<script type="text/javascript">
+			  	$(function() {
+			  		$(".linkmap-<%= map.id %>").colorbox();
+			  	});
+			</script>
 		<% end %>
 	</div>
 

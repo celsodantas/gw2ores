@@ -9,4 +9,9 @@ class OreNodeController < ApplicationController
   	@ore = OreNode.find(params[:id])
   	@ore.delete
   end
+
+  def reset
+    OreNode.destroy_all
+  	redirect_to :root
+  end
 end

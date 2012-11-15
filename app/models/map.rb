@@ -1,5 +1,5 @@
 class Map < ActiveRecord::Base
-  attr_accessible :name, :image, :image_mini
+  attr_accessible :name, :image, :image_mini, :size_x, :size_y
   has_many :ore_nodes
 
   # ResetDate still needs work!

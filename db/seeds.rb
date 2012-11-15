@@ -8,11 +8,11 @@
 
 ResetDate.new.save
 
-maps = [{name: "Malchors Leap", image: "malchors_leap.jpeg", image_mini: "malchors_leap-mini.jpeg"},
-		{name: "Cursed Shore", image: "cursed_shore.jpeg", image_mini: "cursed_shore-mini.jpg"},
-		{name: "Frostgorge Sound", image: "frostgorge_sound.jpeg", image_mini: "frostgorge_sound-mini.jpeg"}]
+maps = [{name: "Malchors Leap", image: "malchors_leap.jpeg", image_mini: "malchors_leap-mini.jpeg", size_x: 1000, size_y: 549},
+		{name: "Cursed Shore", image: "cursed_shore.jpeg", image_mini: "cursed_shore-mini.jpg", size_x: 600, size_y: 1144},
+		{name: "Frostgorge Sound", image: "frostgorge_sound.jpeg", image_mini: "frostgorge_sound-mini.jpeg", size_x: 1000, size_y: 986}]
 
 
 maps.each do |map|
-	Map.new(name: map[:name], image: map[:image], image_mini: map[:image_mini]).save
+	Map.new(name: map[:name], image: map[:image], image_mini: map[:image_mini], size_x: map[:size_x], size_y: map[:size_y]).save
 end
