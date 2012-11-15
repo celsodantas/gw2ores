@@ -17,11 +17,34 @@
 @charset "utf-8";
 
 body {
-    margin: 0;
-    background-color: #D0D0D0;
-    font-family: "Helvetica,Arial,FreeSans";
-    color: #000000;
+        padding-top: 20px;
+        padding-bottom: 40px;
 }
+
+/* Custom container */
+.container-narrow {
+	margin: 0 auto;
+	max-width: 700px;
+}
+.container-narrow > hr {
+	
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	margin: 60px 0;
+	text-align: center;
+}
+.jumbotron h1 {
+	font-size: 72px;
+	line-height: 1;
+}
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+
+/* Supporting marketing content */
 
 .ores_and_map {
     position: relative;

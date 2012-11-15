@@ -1,7 +1,7 @@
 
 <h1>Ores Location for Guild Wars 2</h1>
 <h2>Server: <%= @server %></h2>
-<h3 class="reset-date">Reset date <%= ResetDate.last.created_at %></h3>
+<h3 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h3>
 
 <div class="maps_grid">
 

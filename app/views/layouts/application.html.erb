@@ -3,13 +3,50 @@
 <head>
   <title>OreLocations</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+
 
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+
+	<div class="container-narrow">
+
+      <div class="masthead">
+<!--    NOT USING YET
+		<ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul> -->
+        <h3 class="muted">OresOresOres!</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Guild Wars 2 Ores Locations!</h1>
+        <p class="lead">This is a site for everyone. Help keep the maps updated to help yourself and everyone else.</p>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span10">
+        	<%= yield %>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>Keep the GW2 love</p>
+      </div>
+
+    </div>
+
+
+  <%= javascript_include_tag "application" %>
 
 <script type="text/javascript">
 	$(function() {
@@ -19,3 +56,6 @@
 
 </body>
 </html>
+
+
+
