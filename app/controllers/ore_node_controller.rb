@@ -12,6 +12,8 @@ class OreNodeController < ApplicationController
 
   def reset
     OreNode.destroy_all
+    ResetDate.new.save
+    
   	redirect_to :root
   end
 end
