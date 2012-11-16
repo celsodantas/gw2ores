@@ -79,4 +79,23 @@ $(function() {
 		  }
 		}
 	});
+
+	/////////
+	// Will check every N seconds for new content
+	/////////
+	setInterval(function() 
+	{
+		if (active_map_id == "none") return;
+
+		var last_ore_id = $("#map .ore").last().data("id");
+		console.log(last_ore_id)
+
+		$.get(
+            "map/" + active_map_id + "/new_ores", 
+            {
+            	last_ore_id: last_ore_id
+        	}
+        ); 
+
+	}, 30000);
 })

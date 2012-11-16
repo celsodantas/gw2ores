@@ -17,7 +17,7 @@
 
 			<script type="text/javascript">
 			  	$(function() {
-			  		$(".linkmap-<%= map.id %>").colorbox();
+			  		$(".linkmap-<%= map.id %>").colorbox({onClosed: function () { active_map_id = 'none' }});
 			  	});
 			</script>
 		<% end %>

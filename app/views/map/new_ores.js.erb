@@ -1,0 +1,8 @@
+
+	<% @new_ores.each do |ore| %>
+		{
+			var node = "<%= j(render('/ore_node/ore', :@ore => ore)) %>";
+			
+			$("#map").append(node)
+		}
+	<% end %>
