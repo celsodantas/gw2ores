@@ -1,7 +1,4 @@
 
-<script type="text/javascript">
-	active_map_id = <%= @map.id %>
-</script>
 
 <div id="map" style="width: <%= @map.size_x %>px; height: <%= @map.size_y %>px">
 	<% @map.ore_nodes.each do |ore| %>
@@ -10,3 +7,8 @@
 
 	<%= image_tag "maps/#{@map.image}", id: "map" %>
 </div>
+
+<script type="text/javascript">
+	active_map_id = <%= @map.id %>
+	$("[rel=tooltip]").tooltip()
+</script>

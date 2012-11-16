@@ -1,3 +1,5 @@
 <%= image_tag "#{@ore.name}.png", class: "ore",
 	style: "top: #{@ore.y}px; left: #{@ore.x}px", data: {id: @ore.id},
-	title: @ore.name.titleize %>
+	title: @ore.name.titleize,
+	rel: "tooltip", data: { placement: "top", :"original-title" => "Tooltip on top" } %>
+
