@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require jquery.contextMenu
- *= require colorbox/colorbox
+ *= require colorbox
  *= require_tree .
  */
 
