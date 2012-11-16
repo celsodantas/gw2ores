@@ -2,13 +2,21 @@
 <h2>Server: <%= @server %></h2>
 <h4 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h4>
 
+<p>How to:
+	<ol>
+		<li>Open the map and right-click to add an new Ore.</li>
+		<li>Right-click on the Ore if you want to remove it.</li>
+		<li>No third step. Yee!</li>
+	</ol>
+</p>
+
 <hr>	
 
 <div class="maps_grid">
 
 	<div class="minimap">
 		<% @maps.each do |map| %>
-			<div class="span6">
+			<div class="span4">
 				<%= link_to "map/#{map.id}", title: "#{map.name.titleize} - Right-click to add a node", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 					<h4><%= map.name.titleize %></h4>
 					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
