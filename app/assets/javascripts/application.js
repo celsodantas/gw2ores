@@ -23,8 +23,8 @@ var active_map_id = "none";
 
 var menu_click = function(name)
 {
-	var x = window.mouseXPos - $("#map").offset().left - 25;
-	var y = window.mouseYPos - $("#map").offset().top  - 14;
+	var x = window.mouseXPos - $("#map").offset().left - 12;
+	var y = window.mouseYPos - $("#map").offset().top  - 12;
 	add_ore(name, x, y);
 };
 
@@ -46,10 +46,13 @@ var remove_node = function(id)
 }
 
 $(function() {
-	$(document).mousemove(function(e) {
-      window.mouseXPos = e.pageX;
-      window.mouseYPos = e.pageY;
-   	}); 
+   	$(document).mousedown(function(e){
+   		if (e.which == 3)
+   		{
+   			window.mouseXPos = e.pageX;
+      		window.mouseYPos = e.pageY;
+   		}
+   	});
 
 	$.contextMenu( 
 	{
