@@ -1,5 +1,5 @@
 <%= image_tag "#{@ore.name}.png", class: "ore",
-	style: "top: #{@ore.y}px; left: #{@ore.x}px", data: {id: @ore.id},
+	style: "top: #{@ore.y}px; left: #{@ore.x}px", 
 	title: "#{@ore.name.titleize} - #{@ore.created_at.strftime("%Y/%m/%d %H:%M")}",
-	rel: "tooltip", data: { placement: "top" } %>
+	rel: "tooltip", data: {id: @ore.id, placement: "top" } %>
 
