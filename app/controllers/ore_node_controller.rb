@@ -11,8 +11,10 @@ class OreNodeController < ApplicationController
   end
 
   def reset
-    OreNode.destroy_all
-    ResetDate.new.save
+    if params[:passd] == "jonnyBlue"
+      OreNode.destroy_all
+      ResetDate.new.save
+    end
     
   	redirect_to :root
   end

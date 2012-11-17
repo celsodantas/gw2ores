@@ -6,7 +6,7 @@ OreLocations::Application.routes.draw do
 
   post 'ore_node/map/:id' => "ore_node#create"
   post 'ore_node/delete/:id'  => "ore_node#delete"
-  post 'ore_node/reset' => "ore_node#reset"
+  get 'ore_node/reset' => "ore_node#reset"
 
   get 'map/:id/new_ores' => "map#new_ores"
 
