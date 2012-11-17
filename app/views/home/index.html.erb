@@ -17,7 +17,7 @@
 	<div class="minimap">
 		<% @maps.each do |map| %>
 			<div class="span4">
-				<%= link_to "map/#{map.id}", title: "#{map.name.titleize} - Right-click to add a node", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
+				<%= link_to "map/#{map.id}", title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 					<h4><%= map.name.titleize %></h4>
 					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
 				<% end %>
