@@ -2,7 +2,7 @@
 
 <div id="map" style="width: <%= @map.size_x %>px; height: <%= @map.size_y %>px">
 	<% @map.ore_nodes.each do |ore| %>
-		<%= render("/ore_node/ore", :@ore => ore) %>
+		<%= render("/ore_nodes/ore", :@ore => ore) %>
 	<% end %>
 
 	<%= image_tag "maps/#{@map.image}", id: "map" %>

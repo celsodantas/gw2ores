@@ -31,7 +31,7 @@ var menu_click = function(name)
 var add_ore = function(ore, x, y) 
 {
 	$.post(
-            "ore_node/map/" + active_map_id, 
+            "ore_nodes/map/" + active_map_id, 
             {
             	name: ore,
             	x: x,
@@ -42,7 +42,7 @@ var add_ore = function(ore, x, y)
 
 var remove_node = function(id) 
 {
-	$.post("ore_node/delete/" + id, "js"); 
+	$.post("ore_nodes/delete/" + id, "js"); 
 }
 
 $(function() {
@@ -91,7 +91,7 @@ $(function() {
 		console.log(last_ore_id)
 
 		$.get(
-            "map/" + active_map_id + "/new_ores", 
+            "maps/" + active_map_id + "/new_ores", 
             {
             	last_ore_id: last_ore_id
         	}

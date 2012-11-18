@@ -1,16 +1,21 @@
 OreLocations::Application.routes.draw do
-  
 
   root :to => 'home#index'
-  get 'map/:id' => 'map#index'
 
-  post 'ore_node/map/:id' => "ore_node#create"
-  post 'ore_node/delete/:id'  => "ore_node#delete"
-  get 'ore_node/reset' => "ore_node#reset"
 
-  get 'maps/create' => "map#create"
-  get 'map/:id/new_ores' => "map#new_ores"
+  get 'maps/:id/new_ores' => "maps#new_ores"
+  resources :maps
   
+  resources :sessions
+
+  post 'ore_nodes/map/:id' => "ore_nodes#create"
+  post 'ore_nodes/delete/:id'  => "ore_nodes#delete"
+  get 'ore_nodes/reset' => "ore_nodes#reset", :as => :reset_maps
+
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  get "logout" => "sessions#destroy"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,30 @@
+<h2>Maps list</h2>
+	
+<div class="span12">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Map name</th>
+				<th>Big Image</th>
+				<th>Small Image</th>
+				<th>Added at</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @maps.each do |map| %>
+			<tr>
+				<td><%= map.name %></td>
+				<td><%= map.image %></td>
+				<td><%= map.image_mini %></td>
+				<td><%= map.created_at.strftime("%d/%b/%Y") %></td>
+				<td><%= link_to "Edit", edit_map_path(map)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div class="span12">
+	<%= link_to "Add New Map", new_map_path, class: "btn btn-primary" %>
+</div>

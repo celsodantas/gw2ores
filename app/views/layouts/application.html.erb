@@ -242,10 +242,10 @@
   <div id="myCarousel" class="carousel slide">
     <div class="carousel-inner">
       <div class="item active">
-        <img src="assets/bg-img-0<%= rand(3) %>.jpeg" alt="">
+        <img src="/assets/bg-img-0<%= rand(3) %>.jpeg" alt="">
         <div class="container">
           <div class="carousel-caption">
-            <h1>Guild Wars 2 - Ores Location</h1>
+            <h1><%= link_to "Guild Wars 2 - Ores Location", :root, :style => "text-decoration: none; color: white" %></h1>
             <p class="lead">Open the map. Right-click to add a new node if you find a new one. Let's help the community get the beautiful legendary. =]</p>
           </div>
         </div>
@@ -260,30 +260,19 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
+
+      <% if notice %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end -%>
+
       <%= yield %>
     </div><!-- /.row -->
-
-
-    <!--  
-      Trolls made me disable it
-
-      <hr>
-
-      <div class="row">
-        <div class="span6">
-          <p>If the server has restarted, click on the link below:</p>
-          <p>
-            <%= button_to "Reset Ore Nodes", "ore_node/reset", :class => "btn btn-danger", :confirm => "Are you sure?! It will erase all the corrent nodes in the database!" %>
-          </p>
-        </div>
-      </div> 
-    -->
 
     <hr>
 
     <!-- FOOTER -->
     <footer>
-      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p class="pull-right"><%= link_to "Reset Maps", reset_maps_path, :confirm => "Are you sure?! It will erase all the corrent nodes in the database!" %> | <a href="#">Back to top</a></p>
       <p>All image rights belongs to <a href="http://www.arena.net/">ArenaNet</a>. Keep the GW2 love &hearts;. My inspiration came form <a href="http://fortaspenwood.blogspot.com.br/">Maylum's blog</a> <br/>
         Any thoughts and ideas, e-mail me at celsodantas at gmail.com
       </p>

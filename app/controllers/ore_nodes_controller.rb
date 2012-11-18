@@ -1,4 +1,4 @@
-class OreNodeController < ApplicationController
+class OreNodesController < ApplicationController
   def create
   	@map = Map.find(params[:id])
   	@ore = OreNode.new(name: params[:name], x: params[:x], y: params[:y], map_id: @map.id)
@@ -11,11 +11,16 @@ class OreNodeController < ApplicationController
   end
 
   def reset
-    if params[:passd] == "jonnyBlue"
+
+    if session[:user_id]
       OreNode.destroy_all
       ResetDate.new.save
+
+      flash[:notice] = "Maps reseted! Now get to work to populate the maps!"
+      redirect_to :root
+    else
+      redirect_to :login
     end
     
-  	redirect_to :root
   end
 end

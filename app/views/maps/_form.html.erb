@@ -1,0 +1,44 @@
+<%= form_for(@map) do |f| %>
+  <% if @map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+      <% @map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "Big Image Filename" %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size_x, "Big Image Width (px)" %>
+    <%= f.text_field :size_x %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size_y, "Big Image Height (px)" %>
+    <%= f.text_field :size_y %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_mini, "Image Mini" %>
+    <%= f.text_field :image_mini %>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %> 
+  </div>
+<% end -%>

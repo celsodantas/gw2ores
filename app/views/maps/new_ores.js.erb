@@ -2,7 +2,7 @@
 <% if @new_ores.size > 0 %>
 	<% @new_ores.each do |ore| %>
 		{
-			var node = "<%= j(render('/ore_node/ore', :@ore => ore)) %>";
+			var node = "<%= j(render('/ore_nodes/ore', :@ore => ore)) %>";
 			
 			$("#map").append(node)
 		}
