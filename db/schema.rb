@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118184734) do
+ActiveRecord::Schema.define(:version => 20121214020256) do
 
   create_table "maps", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20121118184734) do
     t.datetime "updated_at", :null => false
     t.integer  "size_x"
     t.integer  "size_y"
+    t.integer  "server_id"
   end
 
   create_table "ore_nodes", :force => true do |t|
@@ -34,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20121118184734) do
   end
 
   create_table "reset_dates", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "servers", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,5 +1,9 @@
 
-<h2>Server: <%= @server %></h2>
+<h2>Server: <%= @server.name %></h2>
+<script type="text/javascript">
+	var gServer = "<%= @server.id %>";
+</script>
+
 <h4 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h4>
 
 <p>How to:
@@ -17,7 +21,7 @@
 	<div class="minimap">
 		<% @maps.each do |map| %>
 			<div class="span4">
-				<%= link_to "maps/#{map.id}", title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
+				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 					<h4><%= map.name.titleize %></h4>
 					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
 				<% end %>

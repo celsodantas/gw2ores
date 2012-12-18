@@ -1,0 +1,15 @@
+<h2>Choose your server</h2>
+
+
+	<% Server.select(:location).group(:location).order("location DESC").each do |e| %>
+	<div class="span16">
+		<h4>
+			<%= e.location  %>
+		</h4>
+		<% Server.find_all_by_location(e.location).each do |server| %>
+			<div class="span2">
+				<%= link_to server.name, server_path(server) %>
+			</div>
+		<% end -%>
+	</div>
+	<% end %>

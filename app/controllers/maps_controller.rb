@@ -6,7 +6,7 @@ class MapsController < ApplicationController
   end
 
   def show
-  	@map = Map.find(params[:id])
+  	@map = Server.find(params[:server_id]).maps.find(params[:id])
   end
 
   def create
@@ -25,7 +25,7 @@ class MapsController < ApplicationController
   end
 
   def update
-    @map = Map.find(params[:id])
+    @map = Server.find(params[:server_id]).maps.find(params[:id])
 
     respond_to do |format|
       if @map.update_attributes(params[:map])
@@ -40,7 +40,7 @@ class MapsController < ApplicationController
   end
 
   def new_ores
-  	@map = Map.find(params[:id])
+  	@map = Server.find(params[:server_id]).maps.find(params[:map_id])
 
   	@new_ores = @map.ore_nodes.select do |n| 
   		n.id > params[:last_ore_id].to_i

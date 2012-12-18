@@ -1,18 +1,23 @@
 OreLocations::Application.routes.draw do
 
-  root :to => 'home#index'
+  root :to => "servers#index"
 
+  #get 'maps/:id/new_ores' => "maps#new_ores"
+  get 'server/:server'    => "home#index", :as => :server
+  get  'ore_nodes/reset'      => "ore_nodes#reset", :as => :reset_maps
 
-  get 'maps/:id/new_ores' => "maps#new_ores"
-  resources :maps
-  
+  resources :servers do
+    resources :maps do
+      get 'new_ores'
+    end
+
+    post 'ore_nodes/map/:id'    => "ore_nodes#create"
+    post 'ore_nodes/delete/:id' => "ore_nodes#delete"  
+  end
+
   resources :sessions
 
-  post 'ore_nodes/map/:id' => "ore_nodes#create"
-  post 'ore_nodes/delete/:id'  => "ore_nodes#delete"
-  get 'ore_nodes/reset' => "ore_nodes#reset", :as => :reset_maps
-
-  get "login" => "sessions#new"
+  get "login"  => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
 

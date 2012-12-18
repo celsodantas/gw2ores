@@ -1,5 +1,7 @@
-<%= image_tag "#{@ore.name}.png", class: "ore",
-	style: "top: #{@ore.y}px; left: #{@ore.x}px", 
-	title: "#{@ore.name.titleize} - #{@ore.created_at.strftime("%Y/%m/%d %H:%M")}",
-	rel: "tooltip", data: {id: @ore.id, placement: "top" } %>
+<a href="#" class="ore" rel="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top" style="top: <%= "#{@ore.y}px" %>; left: <%= "#{@ore.x}px" %>" >
+	<%= image_tag "#{@ore.name}.png",
+		
+		title: "#{@ore.name.titleize} - #{@ore.created_at.strftime("%Y/%m/%d %H:%M")}",
+		rel: "tooltip", data: {id: @ore.id, placement: "top" } %>
 
+</a>
