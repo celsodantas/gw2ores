@@ -246,7 +246,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1><%= link_to "Guild Wars 2 - Ores Location", :root, :style => "text-decoration: none; color: white" %></h1>
-            <p class="lead">Open the map. Right-click to add a new node if you find a new one. Let's help the community get the beautiful legendary. =]</p>
+            <p class="lead">Open the map. Right-click to add a new node if you find a new one. Let's help the community get that beautiful legendary. =]</p>
           </div>
         </div>
       </div>
@@ -272,7 +272,7 @@
 
     <!-- FOOTER -->
     <footer>
-      <p class="pull-right"><%= link_to "Reset Maps", reset_maps_path, :confirm => "Are you sure?! It will erase all the corrent nodes in the database!" %> | <a href="#">Back to top</a></p>
+      <p class="pull-right"><%= link_to "Reset Maps", reset_maps_path(yield :server), :confirm => "Are you sure?! It will erase all the corrent nodes in the database!" %> | <a href="#">Back to top</a></p>
       <p>All image rights belongs to <a href="http://www.arena.net/">ArenaNet</a>. Keep the GW2 love &hearts;. My inspiration came form <a href="http://fortaspenwood.blogspot.com.br/">Maylum's blog</a> <br/>
         Any thoughts and ideas, e-mail me at celsodantas at gmail.com
       </p>

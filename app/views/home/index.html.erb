@@ -1,10 +1,13 @@
+<% content_for :server do @server.id.to_s end %>
 
-<h2>Server: <%= @server.name %></h2>
+<h2>Server: <b><%= @server.name %></b> </h2>
+<label style="font-size:10px; margin-top: -18px">(<%= link_to "change server", :root  %>)</label>
+
 <script type="text/javascript">
 	var gServer = "<%= @server.id %>";
 </script>
 
-<h4 class="reset-date">Reset date <%= ResetDate.last.created_at.strftime("%Y-%m-%d") %></h4>
+<h4 class="reset-date">Reset date <%= @server.reset_dates.last.created_at.strftime("%Y-%m-%d (%H:%M UTC)") %></h4>
 
 <p>How to:
 	<ol>

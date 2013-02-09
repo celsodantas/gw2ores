@@ -3,5 +3,5 @@ class Server < ActiveRecord::Base
 
   has_many :ore_nodes
   has_many :maps
-  has_one :reset_date
+  has_many :reset_dates
 end
