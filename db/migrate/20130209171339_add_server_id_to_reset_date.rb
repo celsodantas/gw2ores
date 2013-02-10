@@ -6,7 +6,7 @@ class AddServerIdToResetDate < ActiveRecord::Migration
     # Creating a ResetDate for each existing server
     #
     Server.all.each do |server|
-    	server.reset_date = ResetDate.new
+    	server.reset_dates << ResetDate.new
     end
   end
 end

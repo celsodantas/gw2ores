@@ -42,7 +42,7 @@ var add_ore = function(ore, x, y)
 
 var remove_node = function(id) 
 {
-	$.post("ore_nodes/delete/" + id, "js"); 
+	$.post("/ore_nodes/delete/" + id, "js"); 
 }
 
 $(function() {
@@ -75,7 +75,10 @@ $(function() {
 		selector: ".ore",
 		items: {
 		  remove: {
-		  		name: "Remove", callback: function (item, opt) { remove_node(opt.$trigger.attr("data-id")) }
+		  		name: "Remove", callback: function (item, opt) { 
+		  			global = opt
+		  			remove_node(opt.$trigger.find("img").attr("data-id")) 
+		  		}
 		  }
 		}
 	});
