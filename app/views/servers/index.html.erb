@@ -8,7 +8,12 @@
 		</h4>
 		<% Server.find_all_by_location(e.location).each do |server| %>
 			<div class="span2">
-				<%= link_to server.name, server_path(server) %>
+				<%= link_to server.name, server_path(server) %> 
+				<% if logged? %>
+				<small>
+					(<%= Server.joins(:maps => :ore_nodes).where("servers.id" => server.id).count %>)
+				</small>
+				<% end %>
 			</div>
 		<% end -%>
 	</div>
