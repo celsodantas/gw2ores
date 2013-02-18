@@ -14,19 +14,15 @@ class OreNodesController < ApplicationController
   end
 
   def reset
-    if session[:user_id]
-      @server = Server.find(params[:server])
-      @server.maps.each do |map|
-        map.ore_nodes.destroy_all
-      end
-      
-      new_reset_date = ResetDate.new
-      @server.reset_dates << new_reset_date
-
-      flash[:notice] = "Maps for server #{@server.name} reseted! Now get to work to populate the maps!"
-      redirect_to server_path(:server => @server.id)
-    else
-      redirect_to :login
+    @server = Server.find(params[:server])
+    @server.maps.each do |map|
+      map.ore_nodes.destroy_all
     end
+    
+    new_reset_date = ResetDate.new
+    @server.reset_dates << new_reset_date
+
+    flash[:notice] = "Maps for server #{@server.name} reseted! Now get to work to populate the maps!"
+    redirect_to server_path(:server => @server.id)
   end
 end
