@@ -20,14 +20,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'heroku'
 
 # while in heroku, use this gem
 #gem 'pg'
 gem 'mysql2'
 gem 'sqlite3', :group => :development
 
-gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem "bcrypt-ruby"
@@ -43,6 +41,7 @@ gem "bcrypt-ruby"
 
 # Deploy with Capistrano
 gem 'capistrano'
+gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'
