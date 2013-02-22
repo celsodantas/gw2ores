@@ -30,8 +30,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem "bcrypt-ruby"
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'therubyracer'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
