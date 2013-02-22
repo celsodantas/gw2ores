@@ -1,3 +1,9 @@
+require "bundler/capistrano"
+require "rvm/capistrano"
+
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user  # Don't use system-wide RVM
+
 set :application, "gw2ores"
 set :repository,  "https://github.com/celsodantas/gw2ores.git"
 set :user, ENV['GW2ORES_USER']
@@ -10,6 +16,8 @@ set :deploy_to, "/home/#{user}/rails_apps/#{application}"
 role :web, server_ip                          # Your HTTP server, Apache/etc
 role :app, server_ip                          # This may be the same as your `Web` server
 role :db,  server_ip, :primary => true # This is where Rails migrations will run
+
+default_run_options[:pty] = true
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -25,3 +33,5 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+
