@@ -21,7 +21,10 @@ end
 
 gem 'jquery-rails'
 gem 'heroku'
-gem 'pg'
+
+# while in heroku, use this gem
+#gem 'pg'
+gem 'mysql2'
 gem 'sqlite3', :group => :development
 
 gem "therubyracer"
