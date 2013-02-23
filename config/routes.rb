@@ -4,7 +4,8 @@ OreLocations::Application.routes.draw do
 
   #get 'maps/:id/new_ores' => "maps#new_ores"
   get 'server/:server'    => "home#index", :as => :server
-  get  'ore_nodes/reset/:server'      => "ore_nodes#reset", :as => :reset_maps
+  get 'ore_nodes/reset/:server'      => "ore_nodes#reset", :as => :reset_maps
+  get 'reset_all' => "ores_nodes#reset_all"
 
   resources :servers do
     resources :maps do

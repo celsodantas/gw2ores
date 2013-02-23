@@ -25,4 +25,8 @@ class OreNodesController < ApplicationController
     flash[:notice] = "Maps for server #{@server.name} reseted! Now get to work to populate the maps!"
     redirect_to server_path(:server => @server.id)
   end
+
+  def reset_all
+    OreNode.destroy_all
+  end
 end
