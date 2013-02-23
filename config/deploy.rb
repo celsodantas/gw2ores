@@ -1,8 +1,10 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user  # Don't use system-wide RVM
+load 'deploy/assets'
+
+#set :rvm_ruby_string, '1.9.3'
+#set :rvm_type, :user  # Don't use system-wide RVM
 
 set :application, "gw2ores"
 set :repository,  "https://github.com/celsodantas/gw2ores.git"
@@ -32,6 +34,15 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+
 end
 
+# namespace :assets do
+#   task :precompile, :roles => :web, :except => { :no_release => true } do
+#     run "cd #{current_path} && #{rake} assets:precompile --trace"
+#   end
+# end
+
+#after "deploy:create_symlink", "assets:precompile"
+after :deploy, "deploy:migrate"
 

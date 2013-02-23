@@ -1,0 +1,6 @@
+
+module OreLocations
+  class Application < Rails::Application
+    RESET_KEY  = "<place key here>"
+  end
+end

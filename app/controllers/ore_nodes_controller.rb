@@ -27,6 +27,12 @@ class OreNodesController < ApplicationController
   end
 
   def reset_all
-    OreNode.destroy_all
+    if params[:key] == ::OreLocations::Application::RESET_KEY
+      OreNode.destroy_all
+
+      render :json => {:status => "ok"}
+    else
+      render :nothing => true, :status => :service_unavailable
+    end
   end
 end
