@@ -37,12 +37,3 @@ namespace :deploy do
 
 end
 
-# namespace :assets do
-#   task :precompile, :roles => :web, :except => { :no_release => true } do
-#     run "cd #{current_path} && #{rake} assets:precompile --trace"
-#   end
-# end
-
-#after "deploy:create_symlink", "assets:precompile"
-after :deploy, "deploy:migrate"
-
