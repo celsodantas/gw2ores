@@ -10,7 +10,7 @@
 			<div class="span2">
 				<%= link_to server.name, server_path(server) %> 
 				<small class="muted">
-					(<%= Server.joins(:maps => :ore_nodes).where("servers.id" => server.id).count %>)
+					(<%= OreNode.find_all_by_server_id(server.id).count %>)
 				</small>
 			</div>
 		<% end -%>

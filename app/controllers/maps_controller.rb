@@ -1,16 +1,13 @@
 class MapsController < ApplicationController
   layout false, :only => :show
 
-  def index
-    @maps = Map.all
-  end
-
   def show
-  	@map = Server.find(params[:server_id]).maps.find(params[:id])
+    @server = Server.find(params[:server_id])
+  	@map    = Map.find(params[:id])
+    @ores   = @map.ore_nodes.where(server_id: @server.id)
   end
 
   def create
-    {name: "Malchors Leap", }
     @map = Map.new(name: params[:name], image: params[:image], 
                    image_mini: params[:image_mini], 
                    size_x: params[:size_x], size_y: params[:size_y])
@@ -40,10 +37,14 @@ class MapsController < ApplicationController
   end
 
   def new_ores
-  	@map = Server.find(params[:server_id]).maps.find(params[:map_id])
+    server_id = params[:server_id]
+    map_id    = params[:map_id]
 
-  	@new_ores = @map.ore_nodes.select do |n| 
-  		n.id > params[:last_ore_id].to_i
-  	end
+    @ore_nodes = OreNode.where("server_id = ? and map_id = ?", server_id, map_id)
+  	# @map = Server.find(params[:server_id]).maps.find(params[:map_id])
+
+  	# @new_ores = @map.ore_nodes.select do |n| 
+  	# 	n.id > params[:last_ore_id].to_i
+  	# end
   end
 end

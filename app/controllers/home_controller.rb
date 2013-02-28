@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
 		@server = Server.find(params[:server])
-		@maps = @server.maps
+		@maps   = @server.maps
 	end
 end

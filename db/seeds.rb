@@ -77,17 +77,25 @@ maps = [{name: "Malchors Leap", image: "malchors_leap.jpeg", image_mini: "malcho
 
 
 servers.each do |server|
-	if Server.find_by_name(server[:name]).nil?
-		s = Server.create(server)
-
-		maps.each do |map|
-			m = Map.new(map)
-			m.server = s
-			m.save
-		end
+	unless Server.find_by_name(server[:name]).present?
+		Server.create! server
 	end
 end
 
+maps.each do |map|
+	unless Map.find_by_name(map[:name]).present?
+		Map.create! map
+	end
+end
+
+# Creating relations between map and server
+Server.all.each do |server|
+	Map.all.each do |map|
+		next if server.maps.include? map
+
+		server.maps << map
+	end
+end
 
 
 

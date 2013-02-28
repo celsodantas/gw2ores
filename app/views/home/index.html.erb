@@ -7,8 +7,6 @@
 	var gServer = "<%= @server.id %>";
 </script>
 
-<h4 class="reset-date">Reset date <%= @server.reset_dates.last.created_at.strftime("%Y-%m-%d (%H:%M UTC)") %></h4>
-
 <p>How to:
 	<ol>
 		<li>Open the map and right-click to add an new Ore.</li>
@@ -27,7 +25,7 @@
 		<% @maps.each do |map| %>
 			<div class="span4">
 				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
-					<h4><%= map.name.titleize %> <small class="muted">(<%= map.ore_nodes.count %>)</small></h4>
+					<h4><%= map.name.titleize %> <small class="muted">(<%= map.ore_nodes.where(server_id: @server.id).count %>)</small></h4>
 					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
 				<% end %>
 			</div>

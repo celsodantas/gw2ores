@@ -265,6 +265,11 @@
         <div class="alert alert-success"><%= notice %></div>
       <% end -%>
 
+      <h4 class="reset-date">
+        Reset date <%= ResetDate.last.created_at.strftime("%b %d %Y %H:%M UTC") %> 
+        <small>(<%= distance_of_time_in_words(ResetDate.last.created_at, Time.now) %> ago)</small>
+      </h4>
+
       <%= yield %>
     </div><!-- /.row -->
 

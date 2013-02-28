@@ -1,10 +1,13 @@
 class OreNodesController < ApplicationController
   def create
-  	@map = Map.find(params[:id])
-  	@ore = OreNode.new(name: params[:name], 
-                       x: params[:x], 
-                       y: params[:y], 
-                       map_id: @map.id)
+  	@map = Map.find(params[:map_id])
+    @server = Server.find(params[:server_id])
+
+  	@ore = OreNode.new(name:      params[:name], 
+                       x:         params[:x], 
+                       y:         params[:y], 
+                       map_id:    @map.id,
+                       server_id: @server.id)
   	@ore.save
   end
 
@@ -16,10 +19,7 @@ class OreNodesController < ApplicationController
   def reset_all
     if params[:key] == ::OreLocations::Application::RESET_KEY
       OreNode.destroy_all
-
-      Server.all.each do |s|
-        s.reset_dates << ResetDate.new
-      end
+      ResetDate.create!
 
       render :json => {:status => "ok"}
     else

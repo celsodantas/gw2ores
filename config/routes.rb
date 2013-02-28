@@ -11,7 +11,7 @@ OreLocations::Application.routes.draw do
       get 'new_ores'
     end
 
-    post 'ore_nodes/map/:id'    => "ore_nodes#create"
+    post 'ore_nodes/map/:map_id'    => "ore_nodes#create"
   end
 
   post 'ore_nodes/delete/:id' => "ore_nodes#delete"  

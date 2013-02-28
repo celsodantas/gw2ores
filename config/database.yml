@@ -6,8 +6,6 @@
 development:
   adapter: sqlite3
   database: ore_locations
-  username: root
-  password: root
   pool: 5
   timeout: 5000
 
