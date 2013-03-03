@@ -1,0 +1,9 @@
+$("[data-id=<%= @ore.id %>]").remove()
+
+{
+	var node = "<%= j(render('/ore_nodes/ore', :@ore => @ore, :@user_confirmed => true)) %>";
+				
+	$("#map").append(node)
+}
+
+$("[rel=tooltip]").tooltip()

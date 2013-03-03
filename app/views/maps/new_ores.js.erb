@@ -4,7 +4,7 @@
 
 	<% @ore_nodes.each do |ore| %>
 		{
-			var node = "<%= j(render('/ore_nodes/ore', :@ore => ore)) %>";
+			var node = "<%= j(render('/ore_nodes/ore', :@ore => ore, :@user_confirmed => ore.user_confirmed?(@user_ip))) %>";
 			
 			$("#map").append(node)
 		}

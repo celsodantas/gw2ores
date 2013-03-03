@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227232945) do
+ActiveRecord::Schema.define(:version => 20130301034329) do
 
   create_table "maps", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20130227232945) do
     t.integer "server_id"
   end
 
+  create_table "ore_confirmations", :force => true do |t|
+    t.integer  "ore_node_id"
+    t.string   "user_ip"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "ore_nodes", :force => true do |t|
     t.string   "name"
     t.integer  "map_id"
@@ -36,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20130227232945) do
     t.integer  "reset_date_id"
     t.integer  "x"
     t.integer  "y"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "ore_confirmations_count", :default => 0, :null => false
   end
 
   create_table "reset_dates", :force => true do |t|
@@ -48,8 +56,9 @@ ActiveRecord::Schema.define(:version => 20130227232945) do
   create_table "servers", :force => true do |t|
     t.string   "name"
     t.string   "location"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "ore_nodes_count", :default => 0, :null => false
   end
 
   create_table "users", :force => true do |t|

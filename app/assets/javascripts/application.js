@@ -45,6 +45,11 @@ var remove_node = function(id)
 	$.post("/ore_nodes/delete/" + id, "js"); 
 }
 
+var confirm_node = function(id)
+{
+	$.post("/ore_nodes/confirm/" + id, "js"); 
+}
+
 $(function() {
    	$(document).mousedown(function(e){
    		if (e.which == 3)
@@ -78,6 +83,12 @@ $(function() {
 		  		name: "Remove", callback: function (item, opt) { 
 		  			global = opt
 		  			remove_node(opt.$trigger.find("img").attr("data-id")) 
+		  		}
+		  },
+		  confirm: {
+		  		name: "Confirm", callback: function (item, opt) { 
+		  			global = opt
+		  			confirm_node(opt.$trigger.find("img").attr("data-id")) 
 		  		}
 		  }
 		}

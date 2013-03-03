@@ -14,7 +14,8 @@ OreLocations::Application.routes.draw do
     post 'ore_nodes/map/:map_id'    => "ore_nodes#create"
   end
 
-  post 'ore_nodes/delete/:id' => "ore_nodes#delete"  
+  post 'ore_nodes/delete/:id'  => "ore_nodes#delete"  
+  post 'ore_nodes/confirm/:id' => "ore_nodes#confirm"  
 
   resources :sessions
 

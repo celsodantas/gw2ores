@@ -1,10 +1,11 @@
 class MapsController < ApplicationController
   layout false, :only => :show
 
-  def show
-    @server = Server.find(params[:server_id])
-  	@map    = Map.find(params[:id])
-    @ores   = @map.ore_nodes.where(server_id: @server.id)
+  def show 
+    @server  = Server.find(params[:server_id])
+  	@map     = Map.find(params[:id])
+    @ores    = @map.ore_nodes.where(server_id: @server.id)
+    @user_ip = request.remote_ip
   end
 
   def create
@@ -41,6 +42,7 @@ class MapsController < ApplicationController
     map_id    = params[:map_id]
 
     @ore_nodes = OreNode.where("server_id = ? and map_id = ?", server_id, map_id)
+    @user_ip   = request.remote_ip
   	# @map = Server.find(params[:server_id]).maps.find(params[:map_id])
 
   	# @new_ores = @map.ore_nodes.select do |n| 

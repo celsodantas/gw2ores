@@ -1,7 +1,31 @@
-<a href="#" class="ore" rel="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top" style="top: <%= "#{@ore.y}px" %>; left: <%= "#{@ore.x}px" %>" >
-	<%= image_tag "#{@ore.name}.png",
+<% 
+# TODO send this to helper
+def format_ore_popup_text(title, date, counter, confirmed)
+	title = title.titleize
+	date  = date.strftime("%H:%M%P %h/%d ")
+
+	"#{title} <br/> 
+		<div style='white-space:nowrap;'>#{date}</div>
+		<div style='white-space:nowrap;'><b class='counter #{confirmed ? 'confirmed' : ''}'>#{counter}</b> confirmations.</div>
+	" 
+end
+
+%>
+
+<a href="#" class="ore" rel="popover" 
+   style="top: <%= "#{@ore.y}px" %>; left: <%= "#{@ore.x}px" %>" >
+	
+	<%= 
+	image_tag "#{@ore.name}.png",
 		
-		title: "#{@ore.name.titleize} - #{@ore.created_at.strftime("%Y/%m/%d %H:%M")}",
-		rel: "tooltip", data: {id: @ore.id, placement: "top" } %>
+		
+		rel: "tooltip", 
+		data: { 
+			id: @ore.id, 
+			html: true,
+			placement: "top", 
+			'original-title' => format_ore_popup_text(@ore.name, @ore.created_at, @ore.confirmations_count, @user_confirmed)
+		} 
+	%>
 
 </a>

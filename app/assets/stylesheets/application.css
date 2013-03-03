@@ -29,6 +29,10 @@
     width: 22px;
 }
 
+.confirmed {
+   	color: #00FF00;
+}
+
 .reset-date {
 	color: #0088cc;
 }
