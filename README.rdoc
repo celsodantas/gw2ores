@@ -3,7 +3,4 @@
 It is still beta. Please visit {http://gw2ores.celsodantas.com/}[http://gw2ores.celsodantas.com/] to see the app running.
 
 == Future Features
-* Node confirmation points
-  * Every player can confirm a localization of an Ore
-* Automatically detect if the game has been updated and reset all ores
-  * Now idea how to do that. =[
+* any ideas? =D
