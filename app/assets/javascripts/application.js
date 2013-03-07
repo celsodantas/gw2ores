@@ -79,18 +79,19 @@ $(function() {
 	{
 		selector: ".ore",
 		items: {
-		  remove: {
-		  		name: "Remove", callback: function (item, opt) { 
-		  			global = opt
-		  			remove_node(opt.$trigger.find("img").attr("data-id")) 
-		  		}
-		  },
-		  confirm: {
+			confirm: {
 		  		name: "Confirm", callback: function (item, opt) { 
 		  			global = opt
 		  			confirm_node(opt.$trigger.find("img").attr("data-id")) 
 		  		}
-		  }
+			},
+			remove: {
+				name: "Remove", callback: function (item, opt) { 
+					global = opt
+					remove_node(opt.$trigger.find("img").attr("data-id")) 
+				}
+			}
+		  
 		}
 	});
 
