@@ -70,6 +70,7 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.2.0)
     libv8 (3.11.8.13)
+    logglier (0.2.8)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -84,6 +85,7 @@ GEM
     net-ssh (2.6.5)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    newrelic_rpm (3.5.8.72)
     polyglot (0.3.3)
     quiet_assets (1.0.1)
       railties (~> 3.1)
@@ -153,7 +155,9 @@ DEPENDENCIES
   debugger
   jquery-rails
   less-rails
+  logglier
   mysql2
+  newrelic_rpm
   quiet_assets
   rails (= 3.2.11)
   rvm-capistrano

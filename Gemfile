@@ -44,3 +44,6 @@ gem 'rvm-capistrano'
 
 # To use debugger
 gem 'debugger', :group => :development
+
+gem 'newrelic_rpm'
+gem 'logglier'
