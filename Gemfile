@@ -46,4 +46,3 @@ gem 'rvm-capistrano'
 gem 'debugger', :group => :development
 
 gem 'newrelic_rpm'
-gem 'logglier'
