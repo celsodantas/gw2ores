@@ -38,3 +38,8 @@ namespace :deploy do
 
 end
 
+before "deploy:restart" do
+	# copying newrelic config file
+	run "cp ~/private_folder/newrelic.yml #{current_path}/config"
+end
+
