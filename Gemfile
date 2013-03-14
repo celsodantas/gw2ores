@@ -46,3 +46,7 @@ gem 'rvm-capistrano'
 gem 'debugger', :group => :development
 
 gem 'newrelic_rpm'
+
+group :test, :development do
+	gem 'rspec-rails'
+end
