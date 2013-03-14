@@ -7,6 +7,16 @@ class OreNode < ActiveRecord::Base
 
   has_many :confirmations, :class_name => OreConfirmation
 
+  def confirm!(user_ip)
+    if OreConfirmation.where(user_ip: user_ip, ore_node_id: self.id).present?
+      false
+    else
+      OreConfirmation.create(user_ip: user_ip, ore_node_id: self.id)
+      self.reload
+      true
+    end
+  end
+
   def confirmations_count
   	self.ore_confirmations_count
   end

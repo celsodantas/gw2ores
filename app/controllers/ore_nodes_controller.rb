@@ -43,10 +43,10 @@ class OreNodesController < ApplicationController
     @ore     = OreNode.find params[:id]
     @user_ip = request.remote_ip
 
-    unless @ore.confirmations.find_by_user_ip(@user_ip).present?
-      OreConfirmation.create(user_ip: @user_ip, ore_node_id: @ore.id)    
+    if @ore.confirm! @user_ip
+      render :confirm
     else
-      render :confirm_deny
+      render :confirm_deny 
     end
 
     @ore = OreNode.find params[:id]
