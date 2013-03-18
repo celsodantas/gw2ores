@@ -3,6 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
+require 'debugger'
+
+# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :selenium
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -35,4 +40,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:each) do
+    # FIXME: delete_all is blocking the transaction. Find out a way to use it 
+    # again and not this:
+    OreNode.all.each(&:delete)
+    OreConfirmation.all.each(&:delete)
+  end
 end
