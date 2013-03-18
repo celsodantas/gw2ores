@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'quiet_assets', :group => :development
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -14,39 +10,29 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
-# while in heroku, use this gem
-#gem 'pg'
 gem 'mysql2'
-gem 'sqlite3', :group => :development
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem "bcrypt-ruby"
 
-gem 'therubyracer'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-# To use debugger
-gem 'debugger', :group => :development
-
 gem 'newrelic_rpm'
 
 group :test, :development do
+	gem 'debugger'
 	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'capybara-webkit'
 end
