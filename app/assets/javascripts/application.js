@@ -21,10 +21,24 @@
 
 var active_map_id = "none";
 
+var context_mouse = function () {
+	var context = $(".context-menu-root:visible")
+
+	this.x_pos = function () {
+		return context.offset().left;
+	}
+
+	this.y_pos = function () {
+		return context.offset().top;
+	}
+
+	return this;
+}
+
 var menu_click = function(name)
 {
-	var x = window.mouseXPos - $("#map").offset().left - 12;
-	var y = window.mouseYPos - $("#map").offset().top  - 12;
+	var x = context_mouse().x_pos() - $("#map").offset().left - 12;
+	var y = context_mouse().y_pos() - $("#map").offset().top  - 12;
 	add_ore(name, x, y);
 };
 
@@ -64,13 +78,22 @@ $(function() {
 		selector: "#map",
 		items: {
 		  orichalcum: {
-		  		name: "Oricharium", callback: function (e) { menu_click(e); }
+		  		name: "Oricharium",  
+		  		className: "oricharium",
+		  		icon: "oricharium",
+		  		callback: function (e) { menu_click(e); }
 		  },
 		  omnomberry: {
-		  		name: "Omnomberry", callback: function (e) { menu_click(e); }
+		  		name: "Omnomberry",   
+		  		className: "omnomberry",
+		  		icon: "omnomberry",
+		  		callback: function (e) { menu_click(e); }
 		  },
 		  ancient_wood: {
-		  		name: "Ancient Wood", callback: function (e) { menu_click(e); }
+		  		name: "Ancient Wood", 
+		  		className: "ancient-wood",
+		  		icon: "ancient-wood",
+		  		callback: function (e) { menu_click(e); }
 		  }
 		}
 	});
@@ -80,13 +103,17 @@ $(function() {
 		selector: ".ore",
 		items: {
 			confirm: {
-		  		name: "Confirm", callback: function (item, opt) { 
+		  		name: "Confirm",
+		  		className: "confirm",
+		  		callback: function (item, opt) { 
 		  			global = opt
 		  			confirm_node(opt.$trigger.find("img").attr("data-id")) 
-		  		}
+		  		},
 			},
 			remove: {
-				name: "Remove", callback: function (item, opt) { 
+				name: "Remove", 
+				className: "remove",
+				callback: function (item, opt) { 
 					global = opt
 					remove_node(opt.$trigger.find("img").attr("data-id")) 
 				}
