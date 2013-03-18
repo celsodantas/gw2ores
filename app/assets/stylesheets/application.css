@@ -36,3 +36,7 @@
 .reset-date {
 	color: #0088cc;
 }
+
+.icon {
+	display: block !important;
+}
