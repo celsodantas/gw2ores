@@ -5,7 +5,7 @@
 		<%= render("/ore_nodes/ore", :@ore => ore, :@user_confirmed => ore.user_confirmed?(@user_ip)) %>
 	<% end %>
 
-	<%= image_tag "maps/#{@map.image}", id: "map" %>
+	<%= image_tag "maps/#{@map.image}", id: "map_image" %>
 </div>
 
 <script type="text/javascript">
