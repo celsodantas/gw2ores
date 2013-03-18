@@ -23,9 +23,12 @@
 
 	<div class="minimap">
 		<% @maps.each do |map| %>
-			<div class="span4">
+			<div class="span4 map">
 				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
-					<h4><%= map.name.titleize %> <small class="muted">(<%= map.ore_nodes.where(server_id: @server.id).count %>)</small></h4>
+					<h4><%= map.name.titleize %> 
+						<small class="muted">
+							(<span class="ore_count"><%= map.ore_nodes.where(server_id: @server.id).count %></span>)</small>
+					</h4>
 					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
 				<% end %>
 			</div>

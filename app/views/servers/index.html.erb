@@ -7,10 +7,10 @@
 			<%= e.location  %>
 		</h4>
 		<% Server.find_all_by_location(e.location).each do |server| %>
-			<div class="span2">
+			<div class="server span2">
 				<%= link_to server.name, server_path(server) %> 
 				<small class="muted">
-					(<%= server.ore_nodes_count %>)
+					(<span class="ore_count"><%= server.ore_nodes_count %></span>)
 				</small>
 			</div>
 		<% end -%>
