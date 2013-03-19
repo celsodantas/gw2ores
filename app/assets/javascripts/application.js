@@ -78,9 +78,9 @@ $(function() {
 		selector: "#map",
 		items: {
 		  orichalcum: {
-		  		name: "Oricharium",  
-		  		className: "oricharium",
-		  		icon: "oricharium",
+		  		name: "Orichalcum",  
+		  		className: "orichalcum",
+		  		icon: "orichalcum",
 		  		callback: function (e) { menu_click(e); }
 		  },
 		  omnomberry: {
