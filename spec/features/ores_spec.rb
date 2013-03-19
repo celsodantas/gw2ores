@@ -1,46 +1,44 @@
 require 'spec_helper'
 require 'js_helpers'
 
-describe "ores", :js => true do
+describe "ores" do
 
-	it "should be able to create an ore" do
+	it "should be able to create an ore", :js => true do
+		## GIVEN
 		server = Server.first
+		map    = server.maps.first
+
 		visit "/server/1"
 
-		map = server.maps.first
 		page.find(".linkmap-#{map.id}").click
 
-		# it will wait the map show up in screen
-		page.first("#map")
-		page.all("#map .ore").should be_empty
-
-		# This code creates a ore in a X, Y position
-		# on the map. As I was not able to get Capybara
-		# to right_click on a specific X, Y position
-		# of the screen, I'm using JS to provide the same
-		# feature.
-		#
-		# It right clicks on the X:100, Y:100 on the
-		# map and select a item in the menu (Oricharium)
+		page.should have_css "#map"
+		page.should_not have_css "#map .ore"
+		
+		## WHEN
 		JS_Helpers::execute_js_in_test_scope page, <<-javascript
 			click_open_menu(100, 100);
-			select_item("oricharium")
+			select_item("orichalcum")
 		javascript
 
+		## THEN
 		page.all("#map .ore").should_not be_empty
 	end
 
-	it "should ble able to remove an ore" do
+	it "should ble able to remove an ore", :js => true, :focus => true do
+		## GIVEN
 		server = Server.first
+		map    = server.maps.first
+		# FIXME:: overwrite the << method to add server and map id to Ore
+		ore = OreNode.create name: "orichalcum", x: 100, y: 100, server_id: server.id, map_id: map.id
+		
 		visit "/server/1"
-
-		map = server.maps.first
 		page.find(".linkmap-#{map.id}").click
 
-		# it will wait the map show up in screen
-		page.first("#map")
-		page.all("#map .ore").should_not be_empty
+		page.should have_css "#map"
+		page.should have_css "#map .ore"
 
+		## WHEN
 		JS_Helpers::execute_js_in_test_scope page, <<-javascript
 			// select the ore and open the menu
 			$(".ore").trigger("contextmenu")
@@ -48,8 +46,8 @@ describe "ores", :js => true do
 			select_item("remove")
 		javascript
 
-
-		page.all("#map .ore").should be_empty
+		## THEN
+		page.should_not have_css "#map .ore"
 	end
 
 end
