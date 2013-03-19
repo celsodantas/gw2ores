@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: ore_locations_test
+  database: ore_locations
   username: root
   password: root 
   pool: 5
