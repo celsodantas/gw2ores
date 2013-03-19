@@ -42,9 +42,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.before(:each) do
-    # FIXME: delete_all is blocking the transaction. Find out a way to use it 
-    # again and not this:
-    OreNode.all.each(&:delete)
-    OreConfirmation.all.each(&:delete)
+    OreNode.destroy_all
+    OreConfirmation.destroy_all
   end
 end
