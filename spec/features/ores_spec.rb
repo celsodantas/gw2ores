@@ -29,7 +29,6 @@ describe "ores" do
 		## GIVEN
 		server = Server.first
 		map    = server.maps.first
-		# FIXME:: overwrite the << method to add server and map id to Ore
 		ore = OreNode.create name: "orichalcum", x: 100, y: 100, server_id: server.id, map_id: map.id
 		
 		visit "/server/1"
