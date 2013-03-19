@@ -1,5 +1,4 @@
-# Some javascript definitions for testing porpouse 
-require 'spec_helper'
+# Some javascript definitions for testing purpose 
 
 module JS_Helpers
 	module Helpers
