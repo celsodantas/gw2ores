@@ -6,6 +6,8 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'debugger'
 
+# I've found some errors running vanila JS while in webkit
+# so I'll use selenium until find a way to fix this.
 # Capybara.javascript_driver = :webkit
 Capybara.javascript_driver = :selenium
 
