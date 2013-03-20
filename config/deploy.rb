@@ -41,5 +41,6 @@ end
 before "deploy:restart" do
 	# copying newrelic config file
 	run "cp ~/private_folder/newrelic.yml #{current_path}/config"
+	run "cp ~/private_folder/reset_key.rb #{current_path}/config/initializers"
 end
 
