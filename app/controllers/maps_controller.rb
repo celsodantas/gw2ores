@@ -43,10 +43,5 @@ class MapsController < ApplicationController
 
     @ore_nodes = OreNode.where("server_id = ? and map_id = ?", server_id, map_id)
     @user_ip   = request.remote_ip
-  	# @map = Server.find(params[:server_id]).maps.find(params[:map_id])
-
-  	# @new_ores = @map.ore_nodes.select do |n| 
-  	# 	n.id > params[:last_ore_id].to_i
-  	# end
   end
 end
