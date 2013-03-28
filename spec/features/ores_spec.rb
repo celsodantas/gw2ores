@@ -4,8 +4,6 @@ require 'js_helpers'
 describe "Right clicking on map" do
 
 	it "should be able to create an ore", :js => true do
-		# debugger
-
 		## GIVEN
 		server = Server.first
 		map    = server.maps.first
