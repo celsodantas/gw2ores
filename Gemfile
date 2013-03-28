@@ -35,4 +35,6 @@ group :test, :development do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'capybara-webkit'
+
+	gem 'poltergeist'
 end

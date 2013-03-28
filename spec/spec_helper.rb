@@ -4,12 +4,15 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'debugger'
 
 # I've found some errors running vanila JS while in webkit
 # so I'll use selenium until find a way to fix this.
 # Capybara.javascript_driver = :webkit
-Capybara.javascript_driver = :selenium
+Capybara.javascript_driver = :poltergeist
+
+Capybara.default_wait_time = 5
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
