@@ -8,7 +8,6 @@ load 'deploy/assets'
 
 set :application, "gw2ores"
 set :repository,  "https://github.com/celsodantas/gw2ores.git"
-set :branch, "stage"
 set :user, ENV['GW2ORES_USER']
 set :server_ip, "198.211.97.163"
 set :deploy_to, "/home/#{user}/rails_apps/#{application}"
