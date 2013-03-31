@@ -2,17 +2,18 @@
 
 
 	<% Server.select(:location).group(:location).order("location DESC").each do |e| %>
-	<div class="span16">
-		<h4>
+		<h4 class="title">
 			<%= e.location  %>
 		</h4>
-		<% Server.find_all_by_location(e.location).each do |server| %>
-			<div class="server span2">
-				<%= link_to server.name, server_path(server) %> 
-				<small class="muted">
-					(<span class="ore_count"><%= server.ore_nodes_count %></span>)
-				</small>
-			</div>
-		<% end -%>
-	</div>
+		<div class="">
+			
+			<% Server.find_all_by_location(e.location).each do |server| %>
+				<div class="server span3">
+					<%= link_to server.name, server_path(server) %> 
+					<small class="muted">
+						(<span class="ore_count"><%= server.ore_nodes_count %></span>)
+					</small>
+				</div>
+			<% end -%>
+		</div>
 	<% end %>
