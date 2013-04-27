@@ -37,4 +37,6 @@ group :test, :development do
 	gem 'capybara-webkit'
 
 	gem 'poltergeist'
+	gem 'guard-rspec'
+	gem 'rb-fsevent'
 end

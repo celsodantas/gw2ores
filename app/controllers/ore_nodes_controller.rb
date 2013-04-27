@@ -4,9 +4,9 @@ class OreNodesController < ApplicationController
     @server  = Server.find params[:server_id]
     @user_ip = request.remote_ip
 
-  	@ore = OreNode.create(name:      params[:name], 
-                          x:         params[:x], 
-                          y:         params[:y], 
+  	@ore = OreNode.create(name:      params[:name],
+                          x:         params[:x],
+                          y:         params[:y],
                           map_id:    @map.id,
                           server_id: @server.id)
 
@@ -46,7 +46,7 @@ class OreNodesController < ApplicationController
     if @ore.confirm! @user_ip
       render :confirm
     else
-      render :confirm_deny 
+      render :confirm_deny
     end
 
     @ore = OreNode.find params[:id]
