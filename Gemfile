@@ -16,13 +16,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-gem 'mysql2'
+gem 'pg'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem "bcrypt-ruby"
 
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
