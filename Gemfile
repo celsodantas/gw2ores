@@ -16,7 +16,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mysql2'
+gem 'mysql'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
