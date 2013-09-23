@@ -108,6 +108,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.7.0)
+    mysql2 (0.3.13)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.1)
@@ -117,7 +118,6 @@ GEM
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.5.8.72)
     nokogiri (1.5.6)
-    pg (0.14.1)
     poltergeist (1.1.0)
       capybara (~> 2.0, >= 2.0.1)
       faye-websocket (~> 0.4, >= 0.4.4)
@@ -228,8 +228,8 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   less-rails
+  mysql2
   newrelic_rpm
-  pg
   poltergeist
   quiet_assets
   rails (= 3.2.11)
