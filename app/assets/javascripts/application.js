@@ -94,7 +94,13 @@ $(function() {
 		  		className: "ancient-wood",
 		  		icon: "ancient-wood",
 		  		callback: function (e) { menu_click(e); }
-		  }
+		  },
+      passion_flower: {
+          name: "Passion Flower", 
+          className: "passion-flower",
+          icon: "passion-flower",
+          callback: function (e) { menu_click(e); }
+      }
 		}
 	});
 
