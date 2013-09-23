@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301034329) do
+ActiveRecord::Schema.define(:version => 20130923022506) do
 
   create_table "maps", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20130301034329) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "ore_confirmations_count", :default => 0, :null => false
+  end
+
+  create_table "ore_reset_histories", :force => true do |t|
+    t.string   "full_response"
+    t.boolean  "new_version"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "reset_dates", :force => true do |t|
