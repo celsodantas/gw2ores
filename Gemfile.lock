@@ -28,6 +28,10 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -219,6 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   bcrypt-ruby
   capistrano
   capybara

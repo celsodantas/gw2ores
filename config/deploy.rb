@@ -43,3 +43,6 @@ before "deploy:restart" do
 	run "cp ~/private_folder/reset_key.rb #{current_path}/config/initializers"
 end
 
+
+        require './config/boot'
+        require 'airbrake/capistrano'
