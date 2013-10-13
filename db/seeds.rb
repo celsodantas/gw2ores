@@ -72,7 +72,8 @@ servers =
 maps = [{name: "Malchors Leap", image: "malchors_leap.jpeg", image_mini: "malchors_leap-mini.jpeg", size_x: 1000, size_y: 549},
 		{name: "Cursed Shore", image: "cursed_shore.jpeg", image_mini: "cursed_shore-mini.jpg", size_x: 600, size_y: 1144},
 		{name: "Frostgorge Sound", image: "frostgorge_sound.jpeg", image_mini: "frostgorge_sound-mini.jpeg", size_x: 1000, size_y: 986},
-		{name: "Southsun Cove", image: "southsun_cove.jpeg", image_mini: "southsun_cove-mini.jpeg", size_x: 1000, size_y: 658}]
+		{name: "Southsun Cove", image: "southsun_cove.jpeg", image_mini: "southsun_cove-mini.jpeg", size_x: 1000, size_y: 658},
+		{name: "Metrica Province", image: "metrica_province.jpg", image_mini: "metrica_province-mini.jpg", size_x: 643, size_y: 1000}]
 
 
 

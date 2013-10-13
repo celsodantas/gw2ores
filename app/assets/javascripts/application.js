@@ -65,68 +65,102 @@ var confirm_node = function(id)
 }
 
 $(function() {
-   	$(document).mousedown(function(e){
-   		if (e.which == 3)
-   		{
-   			window.mouseXPos = e.pageX;
-      		window.mouseYPos = e.pageY;
-   		}
-   	});
+ 	$(document).mousedown(function(e){
+ 		if (e.which == 3)
+ 		{
+ 			window.mouseXPos = e.pageX;
+    		window.mouseYPos = e.pageY;
+ 		}
+ 	});
 
-	$.contextMenu( 
-	{
-		selector: "#map",
-		items: {
-		  orichalcum: {
-		  		name: "Orichalcum",  
-		  		className: "orichalcum",
-		  		icon: "orichalcum",
-		  		callback: function (e) { menu_click(e); }
-		  },
-		  omnomberry: {
-		  		name: "Omnomberry",   
-		  		className: "omnomberry",
-		  		icon: "omnomberry",
-		  		callback: function (e) { menu_click(e); }
-		  },
-		  ancient_wood: {
-		  		name: "Ancient Wood", 
-		  		className: "ancient-wood",
-		  		icon: "ancient-wood",
-		  		callback: function (e) { menu_click(e); }
-		  },
-      passion_flower: {
-          name: "Passion Flower", 
-          className: "passion-flower",
-          icon: "passion-flower",
-          callback: function (e) { menu_click(e); }
+
+  // ON HIGH END MAPS
+  $(".high_end_maps").on("click", function () {
+    $.contextMenu('destroy');
+
+    register_confirm_remove()
+    
+    $.contextMenu( 
+    {
+      selector: "#map",
+      items: {
+        orichalcum: {
+            name: "Orichalcum",  
+            className: "orichalcum",
+            icon: "orichalcum",
+            callback: function (e) { menu_click(e); }
+        },
+        omnomberry: {
+            name: "Omnomberry",   
+            className: "omnomberry",
+            icon: "omnomberry",
+            callback: function (e) { menu_click(e); }
+        },
+        ancient_wood: {
+            name: "Ancient Wood", 
+            className: "ancient-wood",
+            icon: "ancient-wood",
+            callback: function (e) { menu_click(e); }
+        },
+        passion_flower: {
+            name: "Passion Flower", 
+            className: "passion-flower",
+            icon: "passion-flower",
+            callback: function (e) { menu_click(e); }
+        }
       }
-		}
-	});
+    });
+  })
 
-	$.contextMenu( 
-	{
-		selector: ".ore",
-		items: {
-			confirm: {
-		  		name: "Confirm",
-		  		className: "confirm",
-		  		callback: function (item, opt) { 
-		  			global = opt
-		  			confirm_node(opt.$trigger.find("img").attr("data-id")) 
-		  		},
-			},
-			remove: {
-				name: "Remove", 
-				className: "remove",
-				callback: function (item, opt) { 
-					global = opt
-					remove_node(opt.$trigger.find("img").attr("data-id")) 
-				}
-			}
-		  
-		}
-	});
+  $(".low_end_maps").on("click", function () {
+    $.contextMenu('destroy');
+
+    register_confirm_remove()
+
+    $.contextMenu( 
+    {
+      selector: "#map",
+      items: {
+        vanilla_bean: {
+            name: "Vanilla Bean",  
+            className: "vanilla-bean",
+            icon: "vanilla-bean",
+            callback: function (e) { menu_click(e); }
+        }
+      }
+    });
+  })
+
+  register_confirm_remove = function () {
+    $.contextMenu( 
+    {
+      selector: ".ore",
+      items: {
+        confirm: {
+            name: "Confirm",
+            className: "confirm",
+            callback: function (item, opt) { 
+              global = opt
+              confirm_node(opt.$trigger.find("img").attr("data-id")) 
+            },
+        },
+        remove: {
+          name: "Remove", 
+          className: "remove",
+          callback: function (item, opt) { 
+            global = opt
+            remove_node(opt.$trigger.find("img").attr("data-id")) 
+          }
+        }
+        
+      }
+    });
+  }
+	
+
+  $("#display_more_maps").on("click", function() {
+    $(".low_end_maps").toggle();
+  });
 
 	/////////
 	// Will check every N seconds for new content
@@ -146,4 +180,5 @@ $(function() {
         ); 
 
 	}, 30000);
+
 })

@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923022506) do
+ActiveRecord::Schema.define(:version => 20131013155811) do
 
   create_table "maps", :force => true do |t|
     t.string   "name"
     t.string   "image"
     t.string   "image_mini"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "size_x"
     t.integer  "size_y"
     t.integer  "server_id"
+    t.boolean  "high_end",   :default => false
   end
 
   create_table "maps_servers", :id => false, :force => true do |t|

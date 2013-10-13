@@ -21,8 +21,8 @@
 
 <div class="maps_grid">
 
-	<div class="minimap">
-		<% @maps.each do |map| %>
+	<div class="minimap high_end_maps">
+		<% @maps.high_end.each do |map| %>
 			<div class="span4 map">
 				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 					<h4><%= map.name.titleize %> 
@@ -41,4 +41,32 @@
 		<% end %>
 	</div>
 
+</div>
+
+<div>
+	<p>
+		<a href="javascript:void(0)" id="display_more_maps">Show more maps...</a>
+	</p>
+
+	<div class="maps_grid low_end_maps" style="display:none">
+		<div class="minimap">
+			<% @maps.low_end.each do |map| %>
+				<div class="span4 map">
+					<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
+						<h4><%= map.name.titleize %> 
+							<small class="muted">
+								(<span class="ore_count"><%= map.ore_nodes.where(server_id: @server.id).count %></span>)</small>
+						</h4>
+						<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
+					<% end %>
+				</div>
+
+				<script type="text/javascript">
+				  	$(function() {
+				  		$(".linkmap-<%= map.id %>").colorbox({onClosed: function () { active_map_id = 'none' }});
+				  	});
+				</script>
+			<% end %>
+		</div>
+	</div>
 </div>

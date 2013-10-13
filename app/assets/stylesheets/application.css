@@ -45,3 +45,11 @@
 	clear: both; 
 	padding-top: 20px;
 }
+
+.maps_grid {
+  float: left;
+}
+
+#display_more_maps {
+  float: right;
+}

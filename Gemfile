@@ -1,9 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 gem 'quiet_assets', :group => :development
 
 gem 'airbrake'
+gem 'unicorn'
+gem 'jquery-rails'
+gem 'mysql2'
+
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem "bcrypt-ruby"
+
+# Deploy with Capistrano
+gem 'capistrano'
+gem 'rvm-capistrano'
+
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,20 +30,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'mysql2'
-
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
-gem "bcrypt-ruby"
-
-gem 'unicorn'
-
-# Deploy with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano'
-
-gem 'newrelic_rpm'
 
 group :test, :development do
 	gem 'debugger'
@@ -41,4 +40,6 @@ group :test, :development do
 	gem 'poltergeist'
 	gem 'guard-rspec'
 	gem 'rb-fsevent'
+
+  gem 'thin'
 end
