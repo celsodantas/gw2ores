@@ -85,7 +85,9 @@ end
 
 maps.each do |map|
 	unless Map.find_by_name(map[:name]).present?
-		Map.create! map
+		map = Map.create! map
+		map.high_end = true
+		map.save!
 	end
 end
 

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 gem 'quiet_assets', :group => :development
 
 gem 'airbrake'
@@ -10,13 +11,15 @@ gem 'mysql2'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
-gem "bcrypt-ruby"
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'rvm-capistrano'
 
 gem 'newrelic_rpm'
+
+gem "font-awesome-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.

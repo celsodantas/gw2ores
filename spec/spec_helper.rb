@@ -7,10 +7,11 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'debugger'
 
-# I've found some errors running vanila JS while in webkit
-# so I'll use selenium until find a way to fix this.
-# Capybara.javascript_driver = :webkit
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :poltergeist_debug do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector => true)
+end
+
+Capybara.javascript_driver = :poltergeist_debug
 
 Capybara.default_wait_time = 5
 
