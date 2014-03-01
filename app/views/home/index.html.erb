@@ -22,7 +22,7 @@
 <div class="maps_grid">
 
 	<div class="minimap high_end_maps">
-		<% @maps.high_end.each do |map| %>
+		<% @maps_high_end.each do |map| %>
 			<div class="span4 map">
 				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 					<h4><%= map.name.titleize %> 
@@ -50,7 +50,7 @@
 
 	<div class="maps_grid low_end_maps" style="display:none">
 		<div class="minimap">
-			<% @maps.low_end.each do |map| %>
+			<% @maps_low_end.each do |map| %>
 				<div class="span4 map">
 					<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
 						<h4><%= map.name.titleize %> 

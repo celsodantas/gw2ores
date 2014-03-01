@@ -1,4 +1,5 @@
 class OreNodesController < ApplicationController
+
   def create
   	@map     = Map.find params[:map_id]
     @server  = Server.find params[:server_id]
@@ -20,12 +21,8 @@ class OreNodesController < ApplicationController
   	@ore = OreNode.find(params[:id])
     @confirmations = OreConfirmation.where(ore_node_id: @ore.id)
 
-    # This code is due to Rails not updating the counter cache for Many associations
-    Server.update_counters @ore.server_id, :ore_nodes_count => -1
-
-    @confirmations.delete_all
-
-  	@ore.delete
+    @confirmations.destroy_all
+  	@ore.destroy
   end
 
   def reset_all

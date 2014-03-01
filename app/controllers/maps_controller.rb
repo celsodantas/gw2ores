@@ -2,9 +2,10 @@ class MapsController < ApplicationController
   layout false, :only => :show
 
   def show 
-    @server  = Server.find(params[:server_id])
-  	@map     = Map.find(params[:id])
-    @ores    = @map.ore_nodes.where(server_id: @server.id)
+    @server = Rails.cache.fetch(["server", server_id]) { Server.find(params[:server_id]) }
+    @map    = Rails.cache.fetch(["map", map_id, server_id]) { Map.find(map_id) } 
+    @ores   = Rails.cache.fetch(["map_ores", map_id, server_id]) { @map.ore_nodes.where(server_id: @server.id).all }  
+
     @user_ip = request.remote_ip
   end
 
@@ -38,10 +39,15 @@ class MapsController < ApplicationController
   end
 
   def new_ores
-    server_id = params[:server_id]
-    map_id    = params[:map_id]
-
-    @ore_nodes = OreNode.where("server_id = ? and map_id = ?", server_id, map_id)
+    @ore_nodes = Rails.cache.fetch(["map_ores", "new_ores", server_id, map_id]) { OreNode.where("server_id = ? and map_id = ?", server_id, map_id) }  
     @user_ip   = request.remote_ip
+  end
+
+  def server_id
+    params[:server_id]
+  end
+
+  def map_id
+    params[:id]
   end
 end

@@ -65,4 +65,7 @@ OreLocations::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  Dalli.logger = Logger.new(STDOUT)
+  config.cache_store = :dalli_store, "localhost:#{ENV['MEMCACHED_PORT'] || 11211}", {:expires_in => 90000}
+
 end

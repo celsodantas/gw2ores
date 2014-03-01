@@ -8,6 +8,7 @@ gem 'airbrake'
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'mysql2'
+gem "dalli", '>= 2.3.0'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"

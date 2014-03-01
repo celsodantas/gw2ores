@@ -1,13 +1,13 @@
 <h2>Choose your server</h2>
 
 
-	<% Server.select(:location).group(:location).order("location DESC").each do |e| %>
+	<% @servers.each.with_index do |e, index| %>
 		<h4 class="title">
 			<%= e.location  %>
 		</h4>
 		<div class="">
 			
-			<% Server.find_all_by_location(e.location).each do |server| %>
+			<% @by_location[index].each do |server| %>
 				<div class="server span3">
 					<%= link_to server.name, server_path(server) %> 
 					<small class="muted">

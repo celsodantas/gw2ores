@@ -7,6 +7,9 @@ class OreNode < ActiveRecord::Base
 
   has_many :confirmations, :class_name => OreConfirmation
 
+  after_save :clear_cache
+  after_destroy :clear_cache
+
   def confirm!(user_ip)
     if OreConfirmation.where(user_ip: user_ip, ore_node_id: self.id).present?
       false
@@ -27,5 +30,11 @@ class OreNode < ActiveRecord::Base
 
   def user_confirmed?(user_ip)
   	OreConfirmation.where(ore_node_id: id, user_ip: user_ip).present?
+  end
+
+  def clear_cache
+    Rails.cache.delete("servers")
+    Rails.cache.delete(["map", map_id, server_id])
+    Rails.cache.delete(["map_ores", map_id, server_id])
   end
 end
