@@ -1,7 +1,17 @@
 # config/unicorn.rb
+listen "/tmp/unicorn.gw2ores.sock"
+worker_processes 2
+timeout 30
+
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
+
+root = "/home/deployer/rails_apps/gw2ores/current"
+working_directory root
+pid "#{root}/tmp/pids/unicorn.pid"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 
 before_fork do |server, worker|
 
