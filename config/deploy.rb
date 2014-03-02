@@ -3,8 +3,8 @@ require "rvm/capistrano"
 
 load 'deploy/assets'
 
-#set :rvm_ruby_string, '1.9.3'
-#set :rvm_type, :user  # Don't use system-wide RVM
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user  # Don't use system-wide RVM
 
 server "162.243.12.152", :web, :app, :db, primary: true
 
@@ -49,7 +49,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
-    # put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
