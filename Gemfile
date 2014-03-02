@@ -7,7 +7,7 @@ gem 'quiet_assets', :group => :development
 gem 'airbrake'
 gem 'unicorn'
 gem 'jquery-rails'
-gem 'mysql2'
+gem 'pg'
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
