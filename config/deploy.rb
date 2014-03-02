@@ -8,8 +8,8 @@ load 'deploy/assets'
 
 set :application, "gw2ores"
 set :repository,  "https://github.com/celsodantas/gw2ores.git"
-set :user, ENV['GW2ORES_USER']
-set :server_ip, "198.211.97.163"
+set :user, "deployer"
+set :server_ip, "162.243.12.152"
 set :deploy_to, "/home/#{user}/rails_apps/#{application}"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
