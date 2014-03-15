@@ -25,12 +25,20 @@
 		<% @maps.high_end.each do |map| %>
 			<div class="span4 map">
 				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
-					<h4><%= map.name.titleize %> 
+					<h4>
+						<%= map.name.titleize %> 
 						<small class="muted">
-							(<span class="ore_count"><%= map.ore_nodes.where(server_id: @server.id).count %></span>)</small>
+							(<span class="ore_count"><%= map.ore_nodes.where(server_id: @server.id).count %></span>)
+						</small>
+						<%= link_to magnify_server_map_path(@server, map) do %> 
+							<%= image_tag "magnif.png", class: "magnifier" %></a>
+						<% end -%>
 					</h4>
-					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
 				<% end %>
+
+				<%= link_to server_map_url(@server, map), title: "#{map.name.titleize} - Right-click to add a node/Right-click on the node to remove it.", class: "linkmap-#{map.id}", data: { "fancybox-type" => "ajax"} do %>
+					<%= image_tag "maps/#{map.image_mini}", class: "minimap" %>
+				<% end -%>
 			</div>
 
 			<script type="text/javascript">

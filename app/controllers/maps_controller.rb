@@ -37,6 +37,13 @@ class MapsController < ApplicationController
     end
   end
 
+  def magnify
+    @server  = Server.find(params[:server_id])
+    @map     = Map.find(params[:id])
+    @ores    = @map.ore_nodes.where(server_id: @server.id)
+    @user_ip = request.remote_ip
+  end
+
   def new_ores
     server_id = params[:server_id]
     map_id    = params[:map_id]

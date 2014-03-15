@@ -53,3 +53,7 @@
 #display_more_maps {
   float: right;
 }
+
+.magnifier {
+  width: 13px;
+}

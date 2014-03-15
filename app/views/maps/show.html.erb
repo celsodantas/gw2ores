@@ -1,6 +1,6 @@
 
 
-<div id="map" style="width: <%= @map.size_x %>px; height: <%= @map.size_y %>px">
+<div id="map" style="width: <%= @map.size_x %>px; height: <%= @map.size_y %>px; position: relative">
 	<% @ores.each do |ore| %>
 		<%= render("/ore_nodes/ore", :@ore => ore, :@user_confirmed => ore.user_confirmed?(@user_ip)) %>
 	<% end %>

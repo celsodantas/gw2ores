@@ -37,8 +37,8 @@ var context_mouse = function () {
 
 var menu_click = function(name)
 {
-	var x = context_mouse().x_pos() - $("#map").offset().left - 12;
-	var y = context_mouse().y_pos() - $("#map").offset().top  - 12;
+  var x = ((window.mouseXPos - 12) / $("#map").width())  * 100
+  var y = ((window.mouseYPos - 12) / $("#map").height()) * 100
 	add_ore(name, x, y);
 };
 
@@ -65,17 +65,23 @@ var confirm_node = function(id)
 }
 
 $(function() {
- 	$(document).mousedown(function(e){
- 		if (e.which == 3)
- 		{
- 			window.mouseXPos = e.pageX;
-    		window.mouseYPos = e.pageY;
- 		}
- 	});
-
+  $(document.body).on("mousemove", "#map", function (e) {
+    var parentOffset = $(this).parent().offset(); 
+  
+    window.mouseXPos = e.pageX - parentOffset.left;
+    window.mouseYPos = e.pageY - parentOffset.top;
+  })
 
   // ON HIGH END MAPS
   $(".high_end_maps").on("click", function () {
+    init_highend_context_menu();
+  })
+
+  $(".low_end_maps").on("click", function () {
+    init_lowend_context_menu();
+  })
+
+  init_highend_context_menu = function () {
     $.contextMenu('destroy');
 
     register_confirm_remove()
@@ -110,9 +116,9 @@ $(function() {
         }
       }
     });
-  })
+  }
 
-  $(".low_end_maps").on("click", function () {
+  init_lowend_context_menu = function () {
     $.contextMenu('destroy');
 
     register_confirm_remove()
@@ -129,7 +135,7 @@ $(function() {
         }
       }
     });
-  })
+  }
 
   register_confirm_remove = function () {
     $.contextMenu( 
