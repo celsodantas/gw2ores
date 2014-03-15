@@ -20,9 +20,8 @@ class OreNodesController < ApplicationController
   	@ore = OreNode.find(params[:id])
     @confirmations = OreConfirmation.where(ore_node_id: @ore.id)
 
-    @confirmations.delete_all
-
-  	@ore.delete
+    @confirmations.destroy_all
+  	@ore.destroy
   end
 
   def reset_all
